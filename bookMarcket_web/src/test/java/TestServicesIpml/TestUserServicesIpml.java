@@ -23,10 +23,19 @@ public class TestUserServicesIpml {
     UserServices services;
     @Test
     public void checkUser(){
-        List<User> list=services.checkLogin("李四","123");
+        List<User> list=services.checkLogin("张三","123");
         for (User u : list){
             System.out.println(u.getUserName());
             System.out.println(u.getUserEmail());
         }
+    }
+    @Test
+    public void add(){
+        User user=new User();
+        user.setUserName("少杰");
+        user.setUserPwd("heheda");
+        user.setUserEmail("2378@qq.com");
+        int i=services.add(user);
+        System.out.printf("影响了"+i+"行");
     }
 }
