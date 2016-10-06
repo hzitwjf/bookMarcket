@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hzit.dao.mapper.UserMapper">
+
+    <sql id="userBaseColumnSql">
+        userId,
+        userName,
+        userPwd,
+        userEmail
+    </sql>
+
+    <sql id="userBaseWhereSql">
+        <if test="map!=null">
+            <where>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.userId)">
+                    userId = #{map.userId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.userName)">
+                    AND userName = #{map.userName}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.userPwd)">
+                    AND userPwd = #{map.userPwd}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.userEmail)">
+                    AND userEmail = #{map.userEmail}
+                </if>
+            </where>
+        </if>
+    </sql>
+
+    <insert id="insertUser" parameterType="com.hzit.dao.entity.User">
+        INSERT INTO user(
+        <include refid="userBaseColumnSql"/>
+        )VALUES(
+            #{userId},
+            #{userName},
+            #{userPwd},
+            #{userEmail}
+        )
+    </insert>
+
+    
+    <delete id="deleteUserByUserId" parameterType="Integer">
+        DELETE FROM user WHERE userId = #{userId}
+    </delete>
+
+    <update id="updateUser" parameterType="com.hzit.dao.entity.User">
+        UPDATE user
+        <set>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(userName)">
+                userName = #{userName} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(userPwd)">
+                userPwd = #{userPwd} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(userEmail)">
+                userEmail = #{userEmail} ,
+            </if>
+        </set>
+        WHERE userId = #{userId}
+    </update>
+
+    <select id="searchUserByParams" parameterType="map" resultMap="userMap">
+        SELECT
+        <include refid="userBaseColumnSql"/>
+        FROM user
+        <include refid="userBaseWhereSql"/>
+    </select>
+
+    <resultMap type="com.hzit.dao.entity.User" id="userMap">
+        <id column="userId" property="userId"/>
+        <result column="userName" property="userName"/>
+        <result column="userPwd" property="userPwd"/>
+        <result column="userEmail" property="userEmail"/>
+    </resultMap>
+
+</mapper>
