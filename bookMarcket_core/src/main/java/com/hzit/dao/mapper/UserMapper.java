@@ -10,11 +10,11 @@ import com.fc.platform.commons.page.Pageable;
 
 public interface UserMapper {
 
-	void insertUser(User user);
+	int insertUser(User user);
 
-	void deleteUserByUserId(Integer userId);
+	int deleteUserByUserId(Integer userId);
 
-	void updateUser(User user);
+	int updateUser(User user);
 
 	Page<User> searchUserByParams(@Param("map") Map<String, String> map, Pageable pageable);
 
