@@ -14,16 +14,16 @@
     <sql id="bookBaseWhereSql">
         <if test="map!=null">
             <where>
-                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.bookId)">
+                <if test="map.bookId!=null">
                     bookId = #{map.bookId}
                 </if>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.bookAuthor)">
                     AND bookAuthor = #{map.bookAuthor}
                 </if>
-                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.bookStock)">
+                <if test="map.bookStock!=null">
                     AND bookStock = #{map.bookStock}
                 </if>
-                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.bookPrice)">
+                <if test="map.bookPrice!=null">
                     AND bookPrice = #{map.bookPrice}
                 </if>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.bookPicUrl)">

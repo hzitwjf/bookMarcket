@@ -34,7 +34,7 @@ public class TestBookServicesImpl {
     @Test
     public  void testbypage(){
 
-        Page<Book> pb= bookServices.searchBookByParams(0,3);
+        Page<Book> pb= bookServices.searchBookByParams(1,2);
             for(Book b:pb ){
                 System.out.println(b.getBookAuthor());
 
