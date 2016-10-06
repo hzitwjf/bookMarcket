@@ -1,5 +1,6 @@
 package TestServicesIpml;
 
+import com.fc.platform.commons.page.Page;
 import com.hzit.StartSpring;
 import com.hzit.dao.entity.Book;
 import com.hzit.services.BookServices;
@@ -30,7 +31,18 @@ public class TestBookServicesImpl {
 
 
     }
+    @Test
+    public  void testbypage(){
 
+        Page<Book> pb= bookServices.searchBookByParams(0,3);
+            for(Book b:pb ){
+                System.out.println(b.getBookAuthor());
+
+                }
+                System.out.println("总页数为："+pb.getTotalPages());
+
+                 System.out.println("总行数为："+pb.getTotalElements());
+    }
 
 
 
