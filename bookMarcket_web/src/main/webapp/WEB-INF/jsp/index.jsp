@@ -25,7 +25,7 @@
 </div>
 <div id="content" class="wrap">
 	<div class="list bookList">
-		<form method="post" name="shoping" action="shopping.jsp">
+		<form method="post" name="shoping" action="shop/shopcar">
 			<table>
 				<tr class="title">
 					<th class="checker"></th>
@@ -37,7 +37,7 @@
 				<c:forEach items="${pagebook.content}" var="pagelist">
 				<tr>
 
-					<td><input type="checkbox" value="${pagelist.bookId}"/></td>
+					<td><input type="checkbox"  name="bookId"  value="${pagelist.bookId}"/></td>
 					<td>${pagelist.bookAuthor}</td>
 					<td>${pagelist.bookStock}</td>
 					<td>${pagelist.bookPrice}</td>
