@@ -1,6 +1,6 @@
 package com.hzit.controller;
 
-import com.hzit.dao.entity.User;
+
 import com.hzit.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
