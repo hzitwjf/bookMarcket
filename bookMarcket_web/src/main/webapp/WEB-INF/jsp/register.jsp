@@ -16,6 +16,7 @@
 </div>
 <div id="register">
 	<div class="title">
+
 		<h2>欢迎注册合众艾特网上书城</h2>
 	</div>
 	<div class="steps">

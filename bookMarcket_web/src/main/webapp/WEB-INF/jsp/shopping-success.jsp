@@ -18,7 +18,7 @@
 			</ul>
 		</div>
 		<form method="get" name="search" action="">
-			搜索：<input class="input-text" type="text" name="keywords" /><input class="input-btn" type="submit" name="submit" value="" />
+			 搜索：<input class="input-text" type="text" name="keywords" /><input class="input-btn" type="submit" name="submit" value="" />
 		</form>
 	</div>
 </div>
