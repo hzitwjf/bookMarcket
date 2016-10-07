@@ -28,7 +28,7 @@ public class BookController {
 
     }
     @RequestMapping("/findByPage")
-        public  String findByPage(@RequestParam(name="page")Integer page,ModelMap modelMap){
+        public  String findByPage(@RequestParam(name="page",defaultValue = "0")Integer page,ModelMap modelMap){
         if(page<=0){
             page=0;
         }

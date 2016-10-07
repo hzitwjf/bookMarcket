@@ -41,13 +41,13 @@
 					<td>${pagelist.bookAuthor}</td>
 					<td>${pagelist.bookStock}</td>
 					<td>${pagelist.bookPrice}</td>
-					<td>${pagelist.bookPicUrl}</td>
+					<td><img src="${pagelist.bookPicUrl}"></td>
 				</tr>
 				</c:forEach>
 			</table>
 			<div class="page-spliter">
 				<a href="findByPage?page=${currentpage-1}">&lt;</a>
-				<a href=""findByPage?page=0">首页</a>
+				<a href="findByPage?page=0">首页</a>
 				<c:forEach  begin="0" end="${pagebook.totalPages-1}" var="p">
 				<a href="findByPage?page=${p}">${p+1}</a>
 				</c:forEach>
