@@ -19,7 +19,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/shop")
-public class ShopcarController extends comment {
+public class ShopcarController {
      @Autowired
       private BookServices bookServices;
 
