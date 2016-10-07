@@ -2,6 +2,7 @@ package TestServicesIpml;
 
 
 import com.hzit.StartSpring;
+//import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 
 /**
