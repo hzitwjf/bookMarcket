@@ -3,10 +3,11 @@ package com.hzit.controller;
 import com.hzit.dao.entity.Book;
 import com.hzit.dao.vo.BookVo;
 import com.hzit.services.BookServices;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -18,10 +19,11 @@ import java.util.Map;
 @Controller
 @RequestMapping("/shop")
 public class ShopcarController {
-        private BookServices bookServices;
+     @Autowired
+      private BookServices bookServices;
+
     @RequestMapping("/shopcar")
-    @ResponseBody
-    public  Object shopcar(@RequestParam("bookId") String[] bookId,HttpSession session){
+    public  String shopcar(@RequestParam("bookId") String[] bookId,HttpSession session){
 
         System.out.println("购物车正在启动");
         //通过bookid获取book对象
@@ -38,11 +40,22 @@ public class ShopcarController {
             bookVo.setBookStock(book.getBookStock());
             bookVo.setBookPrice(book.getBookPrice());
             bookVo.setBookPicUrl(book.getBookPicUrl());
-            bookVo.setShopCount(1);
+
+            BookVo shopcarbookid= (BookVo) map.get(bookVo.getBookId());
+            if(shopcarbookid==null){
+                bookVo.setShopCount(1);
+            }else{
+                bookVo.setShopCount(shopcarbookid.getShopCount()+1);
+            }
+
             map.put(bookVo.getBookId(),bookVo);
      }
-                return  map;
+                session.setAttribute("shopcar",map);
+                return  "redirect:/shop/toshopping";
     }
-
+        @RequestMapping("/toshopping")
+        public String shop(){
+            return  "shopping";
+        }
 
 }
