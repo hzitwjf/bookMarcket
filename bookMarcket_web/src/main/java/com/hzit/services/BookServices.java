@@ -11,4 +11,6 @@ import java.util.List;
 public interface BookServices {
     List<Book> findAll();
     Page<Book> searchBookByParams(int page,int rowcount);
+    Book findById(String bookId);
+
 }
