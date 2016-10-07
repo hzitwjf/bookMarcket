@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Administrator on 2016/10/6.
  */
 @Controller
-public class UserController {
+public class UserController extends BaseController{
     @Autowired
     UserServices userServices;
     @RequestMapping("checklogin")
@@ -37,9 +37,17 @@ public class UserController {
     public String insert(User user){
         int i=userServices.add(user);
         if (i==0){
-            return "register";
+            return "redirect:/add";
         }else {
-            return "register_success";
+            return "redirect:/sucess";
         }
+    }
+    @RequestMapping("add")
+    public String add(){
+        return "register";
+    }
+    @RequestMapping("sucess")
+    public String sucess(){
+        return "register_success";
     }
 }
