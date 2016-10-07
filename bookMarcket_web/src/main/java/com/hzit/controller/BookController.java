@@ -2,6 +2,7 @@ package com.hzit.controller;
 
 import com.fc.platform.commons.page.Page;
 import com.hzit.dao.entity.Book;
+import com.hzit.interceptor.comment;
 import com.hzit.services.BookServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,7 @@ import java.util.List;
  * Created by Administrator on 2016/10/6.
  */
 @Controller
-public class BookController {
+public class BookController extends comment {
     @Autowired
     private BookServices bookServices;
       @RequestMapping("/findAll")

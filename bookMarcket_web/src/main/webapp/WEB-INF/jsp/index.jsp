@@ -11,10 +11,12 @@
 	<div id="navbar">
 		<div class="userMenu">
 			<ul>
-				<li class="current"><a href="index.jsp">User首页</a></li>
+				<c:forEach items="${user}" var="u" >
+				<li class="current"><a href="index.jsp">您好：${u.userName},欢迎光临您的首页</a></li>
 				<li><a href="orderlist.jsp">我的订单</a></li>
 				<li><a href="shopping.jsp">购物车</a></li>
-				<li><a href="#">注销</a></li>
+				<li><a href="zhuxiao">注销</a></li>
+				</c:forEach>
 			</ul>
 		</div>
 		<form method="get" name="search" action="">
