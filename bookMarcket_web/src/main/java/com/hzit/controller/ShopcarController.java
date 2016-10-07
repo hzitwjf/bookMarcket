@@ -2,6 +2,7 @@ package com.hzit.controller;
 
 import com.hzit.dao.entity.Book;
 import com.hzit.dao.vo.BookVo;
+import com.hzit.interceptor.comment;
 import com.hzit.services.BookServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +19,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/shop")
-public class ShopcarController {
+public class ShopcarController extends comment {
      @Autowired
       private BookServices bookServices;
 
