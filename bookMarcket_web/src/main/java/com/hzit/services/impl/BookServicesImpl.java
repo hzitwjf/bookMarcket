@@ -1,6 +1,7 @@
 package com.hzit.services.impl;
 
 import com.fc.platform.commons.page.Page;
+import com.fc.platform.commons.page.PageRequest;
 import com.fc.platform.commons.page.Pageable;
 import com.hzit.dao.entity.Book;
 import com.hzit.dao.mapper.BookMapper;
@@ -26,7 +27,11 @@ public class BookServicesImpl implements BookServices {
              }
 
     @Override
-    public Page<Book> searchBookByParams(@Param("map") Map<String, String> map, Pageable pageable) {
-        return null;
+    public Page<Book> searchBookByParams(int page,int rowcount) {
+
+        PageRequest pageRequest=new PageRequest(page,rowcount);
+        Page<Book> list=bookMapper.searchBookByParams(null, pageRequest);
+
+         return list;
     }
 }
