@@ -25,6 +25,17 @@ public class BookVo {
 	 *  图书的图片预览
 	 */
 	private String bookPicUrl;
+
+	private Integer shopCount;
+
+	public Integer getShopCount() {
+		return shopCount;
+	}
+
+	public void setShopCount(Integer shopCount) {
+		this.shopCount = shopCount;
+	}
+
 	/**
 	 * 图书id
 	 * @param bookId
@@ -32,7 +43,8 @@ public class BookVo {
 	public void setBookId(Integer bookId){
 		this.bookId = bookId;
 	}
-	
+
+
     /**
      * 图书id
      * @return Integer
