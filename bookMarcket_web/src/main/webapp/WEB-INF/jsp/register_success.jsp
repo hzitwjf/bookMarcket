@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
@@ -28,7 +27,7 @@
 	<div class="success">
 		<div class="information">
 			<p>恭喜：注册成功！</p>
-			<p><a href="index.jsp">点此进入用户中心&gt;&gt;</a></p>
+			<p><a href="../login.html">点此进入用户中心&gt;&gt;</a></p>
 		</div>
 	</div>
 </div>
