@@ -41,7 +41,7 @@ public class ShopcarController {
             bookVo.setShopCount(1);
             map.put(bookVo.getBookId(),bookVo);
      }
-        return  "map";
+                return  map;
     }
 
 

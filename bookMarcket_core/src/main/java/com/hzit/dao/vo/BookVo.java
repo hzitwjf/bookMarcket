@@ -1,10 +1,12 @@
 package com.hzit.dao.vo;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author maxiang
  */
-public class BookVo {
+public class BookVo implements Serializable{
 	/**
 	 *  图书id
 	 */
