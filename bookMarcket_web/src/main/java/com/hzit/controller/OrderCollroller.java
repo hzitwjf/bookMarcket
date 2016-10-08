@@ -45,7 +45,7 @@ public class OrderCollroller {
                 }
             orderVo.setBookVoList(list);
           boolean bool=  orderServices.addorder(orderVo);
-            return bool;
+            return "shopping-success";
     }
 
 
