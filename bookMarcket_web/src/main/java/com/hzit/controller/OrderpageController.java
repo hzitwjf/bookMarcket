@@ -18,12 +18,12 @@ public class OrderpageController {
         @Autowired
     private OrderpageServices orderpageServices;
 
-    @RequestMapping("/findorderpage")
+/*    @RequestMapping("/findorderpage")
     public String findorderpage(ModelMap modelMap){
 
      List<OrderVo>list= orderpageServices.findbyorder();
         modelMap.put("orderlist",list);
             return "orderlist";
-    }
+    }*/
 
 }

@@ -68,19 +68,21 @@
         </set>
         WHERE orderId = #{orderId}
     </update>
-        <select id="findbyorder" resultType="com.hzit.dao.vo.OrderVo" parameterType="java.lang.Integer">
-            SELECT
-      `order`.`orderId`,book.`bookPicURL`,`order`.`orderPrice`,`order`.`orderCreateTime`,`order`.`orderStatus`
+        <select id="findbyorder" resultType="com.hzit.dao.vo.OrderVo" parameterType="map">
+         SELECT `order`.`orderId`,book.`bookPicURL`,
+`order`.`orderPrice`,`order`.`orderCreateTime`,`order`.`orderStatus`,`order`.`userId`
 FROM book JOIN `orderdetail` ON book.`bookId`=orderdetail.`bookId`
-JOIN   `order` ON `orderdetail`.`orderId`=`order`.`orderId` WHERE `order`.`userId`=#{userId}
+JOIN   `order` ON `orderdetail`.`orderId`=`order`.`orderId` WHERE `order`.`userId`=#{map.userId}
         </select>
+
+
+
     <select id="searchOrderByParams" parameterType="map" resultMap="orderMap">
         SELECT
         <include refid="orderBaseColumnSql"/>
         FROM `order`
         <include refid="orderBaseWhereSql"/>
     </select>
-
     <resultMap type="com.hzit.dao.entity.Order" id="orderMap">
         <id column="orderId" property="orderId"/>
         <result column="userId" property="userId"/>

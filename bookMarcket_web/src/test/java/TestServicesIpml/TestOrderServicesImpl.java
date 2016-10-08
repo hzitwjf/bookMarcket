@@ -1,5 +1,6 @@
 package TestServicesIpml;
 
+import com.fc.platform.commons.page.Page;
 import com.hzit.StartSpring;
 import com.hzit.dao.vo.BookVo;
 import com.hzit.dao.vo.OrderVo;
@@ -12,7 +13,9 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/10/8.
@@ -45,9 +48,17 @@ public class TestOrderServicesImpl {
         orderVo.setBookVoList(list);
         orderServices.addorder(orderVo);
     }
-    @Test
+    /*@Test
     public  void findbyorderpage(){
       List<OrderVo>list=orderpageServices.findbyorder();
+        for(OrderVo o:list){
+            System.out.println(o.getOrderPrice());
+        }
+
+    }*/
+     @Test
+    public  void findbyorderpage(){
+      Page<OrderVo> list=orderpageServices.findbyorder(6,0,3);
         for(OrderVo o:list){
             System.out.println(o.getOrderPrice());
         }

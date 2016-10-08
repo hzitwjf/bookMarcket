@@ -1,5 +1,6 @@
 package com.hzit.services;
 
+import com.fc.platform.commons.page.Page;
 import com.hzit.dao.vo.OrderVo;
 
 import java.util.List;
@@ -9,6 +10,6 @@ import java.util.List;
  */
 public interface OrderpageServices {
 
-    List<OrderVo> findbyorder(Integer userId,int page,int rowcount);
+    Page<OrderVo> findbyorder(Integer userId,int page,int rowcount);
 
 }
