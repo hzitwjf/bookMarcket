@@ -59,6 +59,8 @@ public class ShopcarController {
         public String shop(){
             return  "shopping";
         }
+
+
         @RequestMapping("/deleteshopcar")
         @ResponseBody
          public int delete(@RequestParam("bookId")Integer bookId,HttpSession session ){

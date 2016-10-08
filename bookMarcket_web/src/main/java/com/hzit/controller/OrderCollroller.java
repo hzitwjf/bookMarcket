@@ -24,7 +24,6 @@ public class OrderCollroller {
        private OrderServices orderServices;
 
     @RequestMapping("/orderadd")
-    @ResponseBody
     public  Object orderadd(HttpSession session){
           //从session中获取用户对象
             List<User>  user= (List<User>) session.getAttribute("user");
@@ -45,7 +44,12 @@ public class OrderCollroller {
                 }
             orderVo.setBookVoList(list);
           boolean bool=  orderServices.addorder(orderVo);
+        if(bool){
             return "shopping-success";
+        }else{
+            return "shop/toshopping";
+        }
+
     }
 
 

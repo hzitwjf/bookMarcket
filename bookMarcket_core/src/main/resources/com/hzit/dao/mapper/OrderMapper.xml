@@ -68,7 +68,14 @@
         </set>
         WHERE orderId = #{orderId}
     </update>
+        <select id="findbyorder" resultType="com.hzit.dao.vo.OrderVo">
 
+         SELECT `order`.`orderId`,book.`bookPicURL`,
+`order`.`orderPrice`,`order`.`orderCreateTime`,`order`.`orderStatus`
+FROM book JOIN `orderdetail` ON book.`bookId`=orderdetail.`bookId`
+JOIN   `order` ON `orderdetail`.`orderId`=`order`.`orderId`
+
+        </select>
     <select id="searchOrderByParams" parameterType="map" resultMap="orderMap">
         SELECT
         <include refid="orderBaseColumnSql"/>

@@ -3,6 +3,7 @@ package com.hzit.dao.mapper;
 import java.util.List;
 import java.util.Map;
 
+import com.hzit.dao.vo.OrderVo;
 import org.apache.ibatis.annotations.Param;
 import com.hzit.dao.entity.Order;
 import com.fc.platform.commons.page.Page;
@@ -15,6 +16,7 @@ public interface OrderMapper {
 	void deleteOrderByOrderId(Integer orderId);
 
 	void updateOrder(Order order);
+	List<OrderVo>findbyorder();
 
 	Page<Order> searchOrderByParams(@Param("map") Map<String, String> map, Pageable pageable);
 
