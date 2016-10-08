@@ -2,15 +2,16 @@ package com.hzit.controller;
 
 import com.hzit.dao.entity.Book;
 import com.hzit.dao.vo.BookVo;
-import com.hzit.interceptor.comment;
 import com.hzit.services.BookServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import javax.servlet.http.HttpSession;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,5 +59,33 @@ public class ShopcarController {
         public String shop(){
             return  "shopping";
         }
-
+        @RequestMapping("/deleteshopcar")
+        @ResponseBody
+         public int delete(@RequestParam("bookId")Integer bookId,HttpSession session ){
+            Map map=(Map)session.getAttribute("shopcar");
+            map.remove(bookId);
+            int sum=0;
+            Collection<BookVo> car=map.values();
+            for(BookVo bookVo : car){
+                sum+=bookVo.getBookPrice()*bookVo.getShopCount();
+            }
+            return sum;
+    }
+    @RequestMapping("/updateshopcar")
+    @ResponseBody
+    public int update(@RequestParam("bookId")Integer bookId,@RequestParam("shopCount")Integer shopCount,HttpSession session){
+        System.out.println("修改了"+bookId+"的count，新的count值是："+shopCount);
+        Map map=(Map)session.getAttribute("shopcar");
+        BookVo bookVo=(BookVo)map.get(bookId);
+        if (bookVo!=null){
+            bookVo.setShopCount(shopCount);
+        }
+        int sum=0;
+        Collection<BookVo> car=map.values();
+        for(BookVo vo : car){
+            sum+=vo.getBookPrice()*vo.getShopCount();
+        }
+        session.setAttribute("shopcar",map);
+        return sum;
+    }
 }
