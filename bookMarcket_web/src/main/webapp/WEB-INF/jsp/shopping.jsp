@@ -8,10 +8,27 @@
 <script type="text/javascript">
 $(function(){
 	$(".input-text").blur(function(){
+		var price=$(this).attr("bookPrice");
+		var count=$(this).val();
+		//先修改本地的小计价钱
+		$(this).parent().next().next().children().html(price*count);
 		//修改购物车中书本的数量；
 		$.post("updateshopcar",{"bookId":$(this).attr("bookId"),"shopCount":$(this).val()},function(data){
-			alert(data);
+			//在修改本地的总价
+			$("#zong").html(data)
 		});
+	});
+	$(".shan").click(function(){
+		//alert("确认删除"+$(this).attr("bookId"));
+		var  choose=window.confirm("你不想购买了吗？")
+		if(choose){
+			$(this).parents("tr").fadeOut(1000);
+			//删除购物车中的商品信息
+			$.post("deleteshopcar",{"bookId":$(this).attr("bookId")},function(data){
+				//在修改本地的总价
+				$("#zong").html(data)
+			});
+		}
 	});
 });
 
@@ -55,19 +72,17 @@ $(function(){
 					<td class="thumb"><img src="../${car.value.bookPicUrl}" /></td>
 					<td class="title">${car.value.bookAuthor}</td>
 					<td>
-						<input type="button" id="jian" value="  -  ">
-						<input class="input-text" type="text" name="shopCount" bookId="${car.value.bookId}" value="${car.value.shopCount}" />
-						<input type="button" id="jia" value="  +  ">
+						<input class="input-text" type="text" name="shopCount" bookId="${car.value.bookId}" bookPrice="${car.value.bookPrice}" value="${car.value.shopCount}" />
 					</td>
 					<td>￥<span>${car.value.bookPrice}</span></td>
 					<td>￥<span>${car.value.bookPrice*car.value.shopCount}</span></td>
-					<td><a href="javascript:void (0)">删除</a></td>
+					<td><a class="shan" href="javascript:void (0)" bookId="${car.value.bookId}">删除</a></td>
 				</tr>
 					<c:set var="sum" value="${sum+car.value.bookPrice*car.value.shopCount}"></c:set>
 				</c:forEach>
 			</table>
 			<div class="button">
-				<h4>总价：￥<span>${sum}</span>元</h4>
+				<h4>总价：￥<span id="zong">${sum}</span>元</h4>
 				<input class="input-chart" type="submit" name="submit" value="" />
 			</div>
 		</form>
