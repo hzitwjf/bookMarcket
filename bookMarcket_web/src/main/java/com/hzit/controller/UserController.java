@@ -55,6 +55,7 @@ public class UserController extends BaseController{
     }
     @RequestMapping("add")
     public String add(){
+
         return "register";
     }
     @RequestMapping("sucess")

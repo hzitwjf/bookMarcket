@@ -12,7 +12,7 @@ public class OrderdetailVo {
 	/**
 	 *  订单id
 	 */
-	private Integer orderId;
+	private String orderId;
 	/**
 	 *  图书的id
 	 */
@@ -44,7 +44,7 @@ public class OrderdetailVo {
 	 * 订单id
 	 * @param orderId
 	 */
-	public void setOrderId(Integer orderId){
+	public void setOrderId(String orderId){
 		this.orderId = orderId;
 	}
 	
@@ -52,7 +52,7 @@ public class OrderdetailVo {
      * 订单id
      * @return Integer
      */	
-    public Integer getOrderId(){
+    public String getOrderId(){
     	return orderId;
     }
 	/**
