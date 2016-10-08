@@ -39,7 +39,7 @@
         )VALUES(
             #{orderId},
             #{userId},
-            #{orderCreateTim`e},
+            #{orderCreateTime},
             #{orderPrice},
             #{orderStatus}
         )

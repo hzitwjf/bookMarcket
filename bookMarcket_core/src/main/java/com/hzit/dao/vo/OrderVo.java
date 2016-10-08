@@ -1,5 +1,7 @@
 package com.hzit.dao.vo;
 
+import java.util.List;
+
 /**
  * 
  * @author maxiang
@@ -8,7 +10,7 @@ public class OrderVo {
 	/**
 	 *  订单id
 	 */
-	private Integer orderId;
+	private String orderId;
 	/**
 	 *  收货人id(用户id)
 	 */
@@ -25,11 +27,22 @@ public class OrderVo {
 	 *  订单状态
 	 */
 	private String orderStatus;
+
+	private List<BookVo> bookVoList;
+
+	public List<BookVo> getBookVoList() {
+		return bookVoList;
+	}
+
+	public void setBookVoList(List<BookVo> bookVoList) {
+		this.bookVoList = bookVoList;
+	}
+
 	/**
 	 * 订单id
 	 * @param orderId
 	 */
-	public void setOrderId(Integer orderId){
+	public void setOrderId(String orderId){
 		this.orderId = orderId;
 	}
 	
@@ -37,7 +50,7 @@ public class OrderVo {
      * 订单id
      * @return Integer
      */	
-    public Integer getOrderId(){
+    public String getOrderId(){
     	return orderId;
     }
 	/**

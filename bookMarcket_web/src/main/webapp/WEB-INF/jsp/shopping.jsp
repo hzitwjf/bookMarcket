@@ -26,7 +26,7 @@
 </div>
 <div id="content" class="wrap">
 	<div class="list bookList">
-		<form method="post" name="shoping" action="shopping-success.jsp">
+		<form method="post" name="shoping" action="../orderadd">
 			<table>
 				<tr class="title">
 					<th class="view">图片预览</th>
