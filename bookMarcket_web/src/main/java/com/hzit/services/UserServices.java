@@ -10,4 +10,5 @@ import java.util.List;
 public interface UserServices {
     List<User> checkLogin(String userName, String userPwd);
     int add(User u);
+    List<User> findUser(String userName);
 }

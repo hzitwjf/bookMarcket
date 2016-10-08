@@ -31,4 +31,12 @@ public class UserServicesImpl implements UserServices {
        int i= userMapper.insertUser(u);
         return i;
     }
+
+    @Override
+    public List<User> findUser(String userName) {
+        Map map=new HashMap();
+        map.put("userName",userName);
+        List<User> list=userMapper.searchUserByParams(map);
+        return list;
+    }
 }

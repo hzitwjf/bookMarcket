@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -26,6 +27,16 @@ public class UserController extends BaseController{
             return "redirect:/findByPage";
         }else {
             return "redirect:/login.html";
+        }
+    }
+    @RequestMapping("findUser")
+    @ResponseBody
+    public int findUser(@RequestParam("userName")String userName){
+        List<User> user=userServices.findUser(userName);
+        if (user.size()>=1){
+            return 1;
+        }else {
+            return -1;
         }
     }
     @RequestMapping("zhuxiao")
