@@ -74,15 +74,13 @@
 FROM book JOIN `orderdetail` ON book.`bookId`=orderdetail.`bookId`
 JOIN   `order` ON `orderdetail`.`orderId`=`order`.`orderId` WHERE `order`.`userId`=#{map.userId}
         </select>
-
-
-
     <select id="searchOrderByParams" parameterType="map" resultMap="orderMap">
         SELECT
         <include refid="orderBaseColumnSql"/>
         FROM `order`
         <include refid="orderBaseWhereSql"/>
     </select>
+
     <resultMap type="com.hzit.dao.entity.Order" id="orderMap">
         <id column="orderId" property="orderId"/>
         <result column="userId" property="userId"/>

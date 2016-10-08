@@ -62,6 +62,9 @@ public class TestOrderServicesImpl {
         for(OrderVo o:list){
             System.out.println(o.getOrderPrice());
         }
+         System.out.println("总页数为："+list.getTotalPages());
+
+         System.out.println("总行数为："+list.getTotalElements());
 
     }
 }

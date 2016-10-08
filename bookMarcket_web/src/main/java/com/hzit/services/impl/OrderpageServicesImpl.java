@@ -35,5 +35,4 @@ public class OrderpageServicesImpl implements OrderpageServices {
         Page<OrderVo> list=orderMapper.findbyorder(map, pageRequest);
         return list;
     }
-
 }
