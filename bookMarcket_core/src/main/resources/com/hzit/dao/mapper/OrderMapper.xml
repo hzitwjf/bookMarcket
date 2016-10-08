@@ -34,12 +34,12 @@
     </sql>
 
     <insert id="insertOrder" parameterType="com.hzit.dao.entity.Order">
-        INSERT INTO order(
+        INSERT INTO  `order`(
         <include refid="orderBaseColumnSql"/>
         )VALUES(
             #{orderId},
             #{userId},
-            #{orderCreateTime},
+            #{orderCreateTim`e},
             #{orderPrice},
             #{orderStatus}
         )
@@ -51,7 +51,7 @@
     </delete>
 
     <update id="updateOrder" parameterType="com.hzit.dao.entity.Order">
-        UPDATE order
+        UPDATE `order`
         <set>
             <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(userId)">
                 userId = #{userId} ,
@@ -72,7 +72,7 @@
     <select id="searchOrderByParams" parameterType="map" resultMap="orderMap">
         SELECT
         <include refid="orderBaseColumnSql"/>
-        FROM order
+        FROM `order`
         <include refid="orderBaseWhereSql"/>
     </select>
 
