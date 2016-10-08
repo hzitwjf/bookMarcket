@@ -13,7 +13,11 @@ public class comment implements HandlerInterceptor{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         HttpSession session=request.getSession();
-        if (session.getAttribute("userName")==null||session.getAttribute("passWord")==null){
+        /*if (session.getAttribute("userName")==null||session.getAttribute("passWord")==null){
+            response.sendRedirect("/login.html");
+            return false;
+        }*/
+        if (session.getAttribute("user")==null){
             response.sendRedirect("/login.html");
             return false;
         }
