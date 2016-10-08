@@ -1,5 +1,6 @@
 package com.hzit.services.impl;
 
+import com.fc.platform.commons.page.PageRequest;
 import com.hzit.dao.mapper.OrderMapper;
 import com.hzit.dao.vo.OrderVo;
 import com.hzit.services.OrderpageServices;
@@ -15,9 +16,11 @@ import java.util.List;
 public class OrderpageServicesImpl implements OrderpageServices {
     @Autowired
     private OrderMapper orderMapper;
-    @Override
-    public List<OrderVo> findbyorder() {
-        return   orderMapper.findbyorder();
 
+    @Override
+    public List<OrderVo> findbyorder(Integer userId, int page, int rowcount) {
+        PageRequest pageRequest=new PageRequest(page,rowcount);
+
+        return null;
     }
 }

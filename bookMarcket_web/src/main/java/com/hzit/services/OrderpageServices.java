@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface OrderpageServices {
 
-    List<OrderVo> findbyorder();
+    List<OrderVo> findbyorder(Integer userId,int page,int rowcount);
 
 }

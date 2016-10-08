@@ -16,7 +16,7 @@ public interface OrderMapper {
 	void deleteOrderByOrderId(Integer orderId);
 
 	void updateOrder(Order order);
-	List<OrderVo>findbyorder();
+	List<OrderVo>findbyorder(Integer userId, Pageable pageable);
 
 	Page<Order> searchOrderByParams(@Param("map") Map<String, String> map, Pageable pageable);
 
