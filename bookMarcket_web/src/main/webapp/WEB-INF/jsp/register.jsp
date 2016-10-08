@@ -52,7 +52,7 @@
 				return false;
 			}
 			var reg=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-			if(youxiang.indexOf(".")==-1 || youxiang.indexOf("@")==-1){
+			if(reg.test(youxiang)==false){
 				$("#email").text("請輸入正確的email，必須韓有點和@符號");
 				return false;
 			}
