@@ -11,10 +11,12 @@
 	<div id="navbar">
 		<div class="userMenu">
 			<ul>
-				<li><a href="index.html">User首页</a></li>
-				<li class="current"><a href="orderlist.html">我的订单</a></li>
-				<li><a href="shopping.html">购物车</a></li>
-				<li><a href="#">注销</a></li>
+				<c:forEach items="${user}" var="u" >
+					<li class="current"><a href="index.jsp">您好：${u.userName},欢迎光临您的首页</a></li>
+					<li><a href="orderlist.jsp">我的订单</a></li>
+					<li><a href="shop/toshopping">购物车</a></li>
+					<li><a href="zhuxiao">注销</a></li>
+				</c:forEach>
 			</ul>
 		</div>
 		<form method="get" name="search" action="">
@@ -36,8 +38,13 @@
 				<c:forEach items="${orderlist.content}" var="ordlist">
 				<tr>
 					<td>${ordlist.orderId}</td>
-					<td class="thumb"><img src="${ordlist}" /></td>
-					<td></td>
+
+					<td class="thumb"><img src="${ordlist.bookPicUrl}" /></td>
+
+
+					<c:forEach items="${user}" var="u" >
+					<td>${u.userName}</td>
+					</c:forEach>
 					<td>${ordlist.orderPrice}</td>
 					<td>${ordlist.orderCreateTime}</td>
 					<td>${ordlist.orderStatus}</td>

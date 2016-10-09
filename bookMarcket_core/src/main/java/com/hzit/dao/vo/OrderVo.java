@@ -29,6 +29,15 @@ public class OrderVo {
 	private String orderStatus;
 
 	private List<BookVo> bookVoList;
+	private  String bookPicUrl;
+
+	public String getBookPicUrl() {
+		return bookPicUrl;
+	}
+
+	public void setBookPicUrl(String bookPicUrl) {
+		this.bookPicUrl = bookPicUrl;
+	}
 
 	public List<BookVo> getBookVoList() {
 		return bookVoList;
