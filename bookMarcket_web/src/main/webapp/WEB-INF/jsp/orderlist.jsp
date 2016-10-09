@@ -44,11 +44,11 @@
 
 					<c:forEach items="${user}" var="u" >
 					<td>${u.userName}</td>
-					</c:forEach>
+				</c:forEach>
 					<td>${ordlist.orderPrice}</td>
 					<td>${ordlist.orderCreateTime}</td>
 					<td>${ordlist.orderStatus}</td>
-					<td><a class="status" href="#">点我查看详情</a></td>
+					<td><a class="status" href="toorderdetail?orderId=${ordlist.orderId}">点我查看详情</a></td>
 				</tr>
 				</c:forEach>
 			</table>
