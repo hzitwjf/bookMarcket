@@ -1,7 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-
 <title></title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
@@ -34,6 +33,7 @@
 					<th class="price">订单金额</th>
 					<th class="createTime">下单时间</th>
 					<th class="status">订单状态</th>
+					<th>订单详情</th>
 				</tr>
 				<c:forEach items="${orderlist.content}" var="ordlist">
 				<tr>
@@ -48,6 +48,7 @@
 					<td>${ordlist.orderPrice}</td>
 					<td>${ordlist.orderCreateTime}</td>
 					<td>${ordlist.orderStatus}</td>
+					<td><a class="status" href="#">点我查看详情</a></td>
 				</tr>
 				</c:forEach>
 			</table>

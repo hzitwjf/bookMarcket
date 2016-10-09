@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
@@ -11,10 +12,12 @@
 	<div id="navbar">
 		<div class="userMenu">
 			<ul>
-				<li><a href="index.html">User首页</a></li>
-				<li class="current"><a href="orderlist.html">订单详情</a></li>
-				<li><a href="shopping.html">购物车</a></li>
-				<li><a href="#">注销</a></li>
+				<c:forEach items="${user}" var="u" >
+					<li class="current"><a href="findByPage">您好：${u.userName},欢迎光临您的首页</a></li>
+					<li><a href="findorderpage">我的订单</a></li>
+					<li><a href="shop/toshopping">购物车</a></li>
+					<li><a href="zhuxiao">注销</a></li>
+				</c:forEach>
 			</ul>
 		</div>
 		<form method="get" name="search" action="">
