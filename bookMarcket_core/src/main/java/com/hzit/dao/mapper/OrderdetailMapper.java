@@ -3,6 +3,7 @@ package com.hzit.dao.mapper;
 import java.util.List;
 import java.util.Map;
 
+import com.hzit.dao.vo.OrderdetailVo;
 import org.apache.ibatis.annotations.Param;
 import com.hzit.dao.entity.Orderdetail;
 import com.fc.platform.commons.page.Page;
@@ -19,5 +20,5 @@ public interface OrderdetailMapper {
 	Page<Orderdetail> searchOrderdetailByParams(@Param("map") Map<String, String> map, Pageable pageable);
 
 	List<Orderdetail> searchOrderdetailByParams(@Param("map") Map<String, String> map);
-
+	List<OrderdetailVo> findByOrderId(@Param("orderId")String orderId);
 } 

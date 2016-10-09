@@ -26,6 +26,30 @@ public class OrderdetailVo {
 	 */
 	private Integer orderdetailPrice;
 	/**
+	 * 书名
+	 */
+	private String bookAuthor;
+	/**
+	 * 图书预览
+	 */
+	private String bookPicUrl;
+	public String getBookAuthor() {
+		return bookAuthor;
+	}
+
+	public void setBookAuthor(String bookAuthor) {
+		this.bookAuthor = bookAuthor;
+	}
+
+	public String getBookPicUrl() {
+		return bookPicUrl;
+	}
+
+	public void setBookPicUrl(String bookPicUrl) {
+		this.bookPicUrl = bookPicUrl;
+	}
+
+	/**
 	 * 订单详情id
 	 * @param orderdetailId
 	 */

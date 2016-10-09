@@ -75,7 +75,12 @@
         FROM orderdetail
         <include refid="orderdetailBaseWhereSql"/>
     </select>
-
+    <select id="findByOrderId" parameterType="java.lang.String" resultType="com.hzit.dao.vo.OrderdetailVo">
+      SELECT orderdetail.orderdetailId,orderdetail.orderId,book.bookPicURL,
+                    orderdetail.orderdetailNum,orderdetail.orderdetailPrice,book.bookAuthor
+      FROM orderdetail  JOIN book ON book.bookId=orderdetail.bookId
+      WHERE orderId=#{orderId}
+    </select>
     <resultMap type="com.hzit.dao.entity.Orderdetail" id="orderdetailMap">
         <id column="orderdetailId" property="orderdetailId"/>
         <result column="orderId" property="orderId"/>

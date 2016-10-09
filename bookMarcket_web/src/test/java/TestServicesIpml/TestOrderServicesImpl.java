@@ -4,6 +4,8 @@ import com.fc.platform.commons.page.Page;
 import com.hzit.StartSpring;
 import com.hzit.dao.vo.BookVo;
 import com.hzit.dao.vo.OrderVo;
+import com.hzit.dao.vo.OrderdetailVo;
+import com.hzit.services.OrderDetailServices;
 import com.hzit.services.OrderServices;
 import com.hzit.services.OrderpageServices;
 import org.junit.Test;
@@ -28,6 +30,8 @@ public class TestOrderServicesImpl {
     private OrderServices orderServices;
     @Autowired
     private OrderpageServices orderpageServices;
+    @Autowired
+    private OrderDetailServices orderDetailServices;
 
     @Test
     public void testOrderadd(){
@@ -66,5 +70,13 @@ public class TestOrderServicesImpl {
 
          System.out.println("总行数为："+list.getTotalElements());
 
+    }
+    @Test
+    public void findByOrderId(){
+        List<OrderdetailVo> list=orderDetailServices.findByOrderId("919f6e76-44cc-4dde-b0f9-088646f090bc");
+        for (OrderdetailVo o : list){
+            System.out.println(o.getBookAuthor());
+            System.out.println(o.getBookPicUrl());
+        }
     }
 }
