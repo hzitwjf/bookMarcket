@@ -12,8 +12,8 @@
 		<div class="userMenu">
 			<ul>
 				<c:forEach items="${user}" var="u" >
-					<li class="current"><a href="index.jsp">您好：${u.userName},欢迎光临您的首页</a></li>
-					<li><a href="orderlist.jsp">我的订单</a></li>
+					<li class="current"><a href="findByPage">您好：${u.userName},欢迎光临您的首页</a></li>
+					<li><a href="findorderpage">我的订单</a></li>
 					<li><a href="shop/toshopping">购物车</a></li>
 					<li><a href="zhuxiao">注销</a></li>
 				</c:forEach>

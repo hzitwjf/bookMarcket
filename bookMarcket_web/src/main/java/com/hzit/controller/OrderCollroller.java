@@ -45,14 +45,17 @@ public class OrderCollroller {
             orderVo.setBookVoList(list);
           boolean bool=  orderServices.addorder(orderVo);
         if(bool){
-            return "shopping-success";
+            return "redirect:/tosuccess";
         }else{
-            return "shop/toshopping";
+            return "redirect:/shop/toshopping";
         }
 
     }
 
-
+    @RequestMapping("tosuccess")
+    public  String success(){
+        return  "shopping-success";
+    }
 
 
 
