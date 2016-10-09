@@ -31,27 +31,24 @@
 				<tr class="title">
 					<th class="orderId">订单详情编号</th>
 					<th>订单编号</th>
+					<th class="userName">图书预览</th>
 					<th class="userName">书名</th>
 					<th class="price">购买数量</th>
 					<th class="createTime">商品单价</th>
 					<th class="status">小计</th>
 				</tr>
+				<c:forEach items="${detail}" var="d">
 				<tr>
-					<td>10010</td>
-					<td class="thumb"><img src="images/book/book_01.gif" /></td>
-					<td>王五</td>
-					<td>￥18.00</td>
-					<td>2012-12-21 12:00:00</td>
-					<td>2012-12-21 12:00:00</td>
+					<td>${d.orderdetailId}</td>
+					<td>${d.orderId}</td>
+					<td class="thumb"><img src="${d.bookPicUrl}" /></td>
+					<td>${d.bookAuthor}</td>
+					<td>${d.orderdetailNum}</td>
+					<td>${d.orderdetailPrice}</td>
+
+					<td>${d.orderdetailNum*d.orderdetailPrice}</td>
 				</tr>
-				<tr>
-					<td>10010</td>
-					<td class="thumb"><img src="images/book/book_02.gif" /></td>
-					<td>马六</td>
-					<td>￥18.00</td>
-					<td>2012-12-21 12:00:00</td>
-					<td>2012-12-21 12:00:00</td>
-				</tr>
+				</c:forEach>
 			</table>
 </div>
 </div>
