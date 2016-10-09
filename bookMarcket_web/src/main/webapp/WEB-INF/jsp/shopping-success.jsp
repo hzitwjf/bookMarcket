@@ -11,10 +11,10 @@
 	<div id="navbar">
 		<div class="userMenu">
 			<ul>
-				<li><a href="index.jsp">User首页</a></li>
-				<li><a href="orderlist.jsp">我的订单</a></li>
-				<li class="current"><a href="shopping.jsp">购物车</a></li>
-				<li><a href="#">注销</a></li>
+				<li><a href="findByPage">User首页</a></li>
+				<li><a href="findorderpage">我的订单</a></li>
+				<li class="current"><a href="shop/toshopping">购物车</a></li>
+				<li><a href="zhuxiao">注销</a></li>
 			</ul>
 		</div>
 		<form method="get" name="search" action="">
