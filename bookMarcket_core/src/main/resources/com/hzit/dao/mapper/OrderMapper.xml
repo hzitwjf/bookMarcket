@@ -72,7 +72,7 @@
          SELECT `order`.`orderId`,book.`bookPicURL`,
 `order`.`orderPrice`,`order`.`orderCreateTime`,`order`.`orderStatus`,`order`.`userId`
 FROM book JOIN `orderdetail` ON book.`bookId`=orderdetail.`bookId`
-JOIN   `order` ON `orderdetail`.`orderId`=`order`.`orderId` WHERE `order`.`userId`=#{map.userId}
+JOIN   `order` ON `orderdetail`.`orderId`=`order`.`orderId` WHERE `order`.`userId`=#{map.userId} GROUP BY orderId
         </select>
     <select id="searchOrderByParams" parameterType="map" resultMap="orderMap">
         SELECT
