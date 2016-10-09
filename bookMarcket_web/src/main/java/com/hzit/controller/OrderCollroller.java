@@ -45,6 +45,7 @@ public class OrderCollroller {
             orderVo.setBookVoList(list);
           boolean bool=  orderServices.addorder(orderVo);
         if(bool){
+            session.removeAttribute("shopcar");
             return "redirect:/tosuccess";
         }else{
             return "redirect:/shop/toshopping";
