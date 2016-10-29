@@ -82,7 +82,8 @@ $(function(){
 				</c:forEach>
 			</table>
 			<div class="button">
-				<h4>总价：￥<span id="zong">${sum}</span>元</h4>
+				<h4>总价：￥<span id="zong">${sum}</span>元 </h4>
+				<h4 style="margin-left: 350px"><button style="height: 30px;"><a href="../findByPage" >继续逛逛吧！</a></button></h4>
 				<input class="input-chart" type="submit" name="submit" value="" />
 			</div>
 		</form>

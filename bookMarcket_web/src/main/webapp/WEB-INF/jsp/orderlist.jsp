@@ -38,10 +38,7 @@
 				<c:forEach items="${orderlist.content}" var="ordlist">
 				<tr>
 					<td>${ordlist.orderId}</td>
-
 					<td class="thumb"><img src="${ordlist.bookPicUrl}" /></td>
-
-
 					<c:forEach items="${user}" var="u" >
 					<td>${u.userName}</td>
 				</c:forEach>
@@ -51,16 +48,25 @@
 					<td><a class="status" href="toorderdetail?orderId=${ordlist.orderId}">点我查看详情</a></td>
 				</tr>
 				</c:forEach>
+				<c:if test="${orderlist.totalPages==0}">
+					<tr>
+						<td colspan="6"> 订单里面空空如也，赶紧去添加订单吧!</td>
+						<td><a href="findByPage">去逛逛！</a></td>
+					</tr>
+				</c:if>
 			</table>
 			<div class="page-spliter">
+				<c:if test="${orderlist.totalPages>0}" >
 				<a href="findorderpage?page=${currenpage-1}">&lt;</a>
 				<a href="findorderpage?page=0">首页</a>
 				<c:forEach begin="0" end="${orderlist.totalPages-1}" var="ordpage">
 				<a href="findorderpage?page=${ordpage}">${ordpage+1}</a>
 				</c:forEach>
+
 				<span>...</span>
 				<a href="findorderpage?page=${orderlist.totalPages-1}">尾页</a>
 				<a href="findorderpage?page=${currenpage+1}">&gt;</a>
+				</c:if>
 			</div>
 			<div class="button"><input class="input-gray" type="submit" name="submit" value="查看一个月前的订单" /><input class="input-gray" type="submit" name="submit" value="查看一个月前的订单" /></div>
 	</div>

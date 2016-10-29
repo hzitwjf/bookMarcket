@@ -2,6 +2,12 @@
 <head>
 	<title>用户注册</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
+	<style type="text/css">
+		.wh{
+			width:500px;
+			height: 50px;;
+		}
+	</style>
 	<script src="js/jquery-3.0.0.js" language="JavaScript"></script>
 	<script type="text/javascript">
 		var b=false;
@@ -87,14 +93,22 @@
 	</div>
 	<form method="post" action="zhuce" onsubmit="return checkAll()">
 		<dl>
-			<dt>用 户 名：</dt>
-			<dd><input class="input-text" type="text" name="userName" id="userName" onblur="one()"/><span id="yonghu"></span></dd>
-			<dt>密　　码：</dt>
-			<dd><input class="input-text" type="password" name="userPwd" id="userPwd" onblur="two()"/><span id="pwd"></span></dd>
-			<dt>确认密码：</dt>
-			<dd><input class="input-text" type="password" name="rePassWord" id="rePassWord" onblur="three()" /><span id="repwd"></span></dd>
-			<dt>Email地址：</dt>
-			<dd><input class="input-text" type="text" name="userEmail" id="userEmail" onblur="four()"/><span id="email"></span></dd>
+			<div class="wh">
+				<dt>用 户 名：</dt>
+				<dd><input class="input-text" type="text" name="userName" id="userName" onblur="one()"/><span id="yonghu"></span></dd>
+			</div>
+			<div class="wh">
+				<dt>密　　码：</dt>
+				<dd><input class="input-text" type="password" name="userPwd" id="userPwd" onblur="two()"/><span id="pwd"></span></dd>
+			</div>
+			<div class="wh">
+				<dt>确认密码：</dt>
+				<dd><input class="input-text" type="password" name="rePassWord" id="rePassWord" onblur="three()" /><span id="repwd"></span></dd>
+			</div>
+			<div class="wh">
+				<dt>Email地址：</dt>
+				<dd><input class="input-text" type="text" name="userEmail" id="userEmail" onblur="four()"/><span id="email"></span></dd>
+			</div>
 			<dt></dt>
 			<dd class="button"><input class="input-reg" type="submit" name="register" value="" /></dd>
 		</dl>
